@@ -11,6 +11,10 @@
                                  [else (stringappend lst)]) 30 "black"))
 
 (displaytext (list "hi" "this" "is" "me"))
+
 (displaytext empty)
-(displaytext (list (list "hi" "this") (list "is" "me") (list "wassup" "ya'll")))
-(define (combinetext lst)
+
+(define (combinetext lst) (cond [(empty? lst) (text "---------------x---------------" 30 "gray")]
+                                [else (above (displaytext (first lst)) (combinetext (rest lst)))]))  
+
+(combinetext (list (list "hi" "this") (list "is" "me") (list "wassup" "ya'll")))
